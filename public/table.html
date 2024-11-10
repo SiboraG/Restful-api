@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Books Table </title>
+        <link rel="stylesheet" href="style.css">
+        <script type="module" src="script.js" defer></script> <!-- JavaScript file for functionality -->
+       
+    </head>
+    <body>
+        <h1>Books Information</h1>
+
+         <table id="book-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Publisher</th>
+                    <th>Genre</th>
+                    <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Book data will be dynamically inserted here -->
+                    </tbody>
+                </table>
+
+                <div clas="new-book-form">
+                    <input type="number" id="id" placeholder="ID"/>
+                    <input type="text" id="title" placeholder="Title"/>
+                    <input type="text" id="author" placeholder="Author"/>
+                    <input type="text" id="publisher" placeholder="Publisher"/>
+                    <input type="text" id="genre" placeholder="Genre"/>
+                
+                    <button onclick="addBook()">Add Book</button>
+                </div>
+                <script>
+
+                function addBook() {
+                    // Get input values
+                    const id = document.getElementById("id").value;
+                    const title = document.getElementById("title").value;
+                    const author = document.getElementById("author").value;
+                    const publisher = document.getElementById("publisher").value;
+                    const genre = document.getElementById("genre").value;
+
+                    if (!id || !title || !author || !publisher || !genre ) {
+                       alert("Please complete all fields before adding a row.");
+                         return;
+                    }
+
+                    // Get a reference to the table
+                    const table = document.getElementById("book-table");
+                
+                    // Create a new row and add cells with the user-inputted data
+                    const newRow = table.insertRow();
+                    newRow.insertCell(0).textContent = id;
+                    newRow.insertCell(1).textContent = title;
+                    newRow.insertCell(2).textContent = author;
+                    newRow.insertCell(3).textContent = publisher;
+                    newRow.insertCell(4).textContent = genre;
+
+                    var actionCell = newRow.insertCell(5);
+                    var deleteBook = document.createElement("button");
+                    deleteBook.textContent = "Delete";
+                    deleteBook.onclick = function() { deleteRow(deleteButton); };
+                    actionCell.appendChild(deleteBook);
+
+                    // Clear input fields and disable the button again
+                    document.getElementById("id").value = "";
+                    document.getElementById("title").value = "";
+                    document.getElementById("author").value = "";
+                    document.getElementById("publisher").value = "";
+                    document.getElementById("genre").value = "";
+                    document.getElementById("addBook").disabled = true;
+                  }
+                  function deleteRow(r) {
+                  var i = r.parentNode.parentNode.rowIndex;
+                  console.log("Row index to delete:", i);
+                  document.getElementById("book-table").deleteRow(i);
+}
+                </script>
+        <!-- script  type="module" src="appbook.js"></script-->
+    </body>
+</html>

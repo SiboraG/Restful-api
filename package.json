@@ -1,0 +1,17 @@
+{
+  "name": "prova-4",
+  "version": "1.0.0",
+  "main": "appbook.js",
+
+  "scripts": {
+     "start": "node appbook.js"
+  },
+  "type":"module",
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^4.21.1",
+    "lowdb": "^7.0.1"
+  }
+}
