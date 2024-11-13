@@ -1,4 +1,4 @@
-fetch("http://localhost:5500/book")
+fetch("https://restful-api-q03n.onrender.com/book")
   .then( res => res.json())
   .then(book => {
     renderBook(book);
@@ -8,7 +8,7 @@ fetch("http://localhost:5500/book")
 
     //fetch with delete method the localhost/5500/book/id
    function deleteBook(id) {
-      fetch('http://localhost:5500/book/${id}', {
+      fetch('https://restful-api-q03n.onrender.com/book/${id}', {
        method: "Delete",
         body: JSON.stringify({
            data: "to",
@@ -21,7 +21,7 @@ fetch("http://localhost:5500/book")
   
 
     // fetch with  PUT method the localhost/5500/book/id
-    fetch('http://localhost:5500/book/${id}', {
+    fetch('https://restful-api-q03n.onrender.com/book/${id}', {
       method: "PUT",
       body: JSON.stringify({
           data: "to",
@@ -59,7 +59,7 @@ fetch("http://localhost:5500/book")
   function createNewBook() {
    
     //fetch with  POST method the localhost/5500/book
-    fetch('http://localhost:5500/book', {
+    fetch('https://restful-api-q03n.onrender.com/book', {
      method: "POST",
       body: JSON.stringify({
          data: "to",
