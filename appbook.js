@@ -9,7 +9,6 @@ import { title } from "process";
 
 //const path = require('path')
 
-
 const defaultData = {book: [{
     id:1,
         title:"To Kill a Mockingbird",
